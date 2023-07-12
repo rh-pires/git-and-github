@@ -188,3 +188,21 @@ In the case of manual resolution of the conflict, during the rebasing process (a
 
 1. **`git add <conflict-file-name.ext>`**
 2. **`git rebase --continue`**
+
+
+## Setting locally a new URL for the remote repository
+
+Sometimes you make a typo in naming a file, and it needs to be changes. Other times, you make a type in naming a remote repository and it needs to change.
+
+It can also happen, that the server configurations where your remote repo is located are changed, so that to access it, you need to change the URL locally so that your machine can continue on Pulling and Pushing.
+
+If that happens:
+
+You can change the URL of a remote repository in Git using the `git remote set-url` command. This command takes two arguments: the remote name and the new repository URL. For example, if you want to change the URL of the remote repository named `origin`, you can use the following command:
+
+```
+git remote set-url origin NEW_REPOSITORY_URL
+```
+
+Make sure to replace `NEW_REPOSITORY_URL` with the actual URL of the new repository.
+
