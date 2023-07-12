@@ -16,6 +16,10 @@ SSH is a cryptographic network protocol that enables exchange of data over unsec
 
 ## Some Nomenclature
 
+**Fork**: a remote repository that is a copy of another repository. In GitHub (and in other VCSs) forks are used so that individuals and teams can independently work on projects after which they submit their changes to the original repository by issuing a "pull request".
+
+**Pull Request**: Is the mechanism by which someone working on a copy of a remote repository (a fork) can request the owner of the original remote repository to evaluate a set of new changes to be included in the original remote repository.
+
 **Origin**: An _alias_ on the local machine to refer to the remote repository associated with a git directory. It harbors the URL to a remote repository to which a project is connected to. Typically we speak of a single repository from which to _fetch_ data from and _push_ data to, but they can also be specified to be different.
 
 ## How to locally configure a remote repo
@@ -115,8 +119,6 @@ You can also use the `-u` option with `git push` to set up a tracking relationsh
 
 `git push -u origin <branch-name>`
 
-## Rebasing
-
 ## Merging versus Rebasing - What is the difference?
 
 Both `git merge` and `git rebase` are commands that integrate changes from one branch into another. However, they do it in different ways.
@@ -136,6 +138,8 @@ Some advantages of `git rebase` are:
 - It avoids creating unnecessary merge commits.
 - It creates a more readable and logical history.
 - It makes it easier to use commands like `git log`, `git bisect`, and `git blame`.
+
+> Note: When a project has multiple branches with several collaborators, having a linear history can help identify a bug. Having a log structure with many branches as a result of `git merge` can make debugging difficult and in those instances `git rebase` can be helpful.
 
 For more information, you can check out these resources:
 
@@ -181,5 +185,6 @@ When rebasing, in the event of a conflict, Git gives 3 options:
 - To resolve the conflict manually
 
 In the case of manual resolution of the conflict, during the rebasing process (as during with mergers), the manually intervened files need to be staged, and then rebasing should be resumed. In other words:
-1. **`git add <conflic-file-name.ext>`**
+
+1. **`git add <conflict-file-name.ext>`**
 2. **`git rebase --continue`**
