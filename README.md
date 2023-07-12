@@ -2,4 +2,6 @@
 
 This repository is for educational purposes, and is resource for describing how to make use of Git and GitHub.
 
-Most of the relevant content is found in the **git_introduction.md** file where really only the basic operations and scenarios are covered. For the time being, interaction with remote repositories is not covered, but I plan to change this soon.
+The most basic content is found in **git_introduction.md** which includes everything you might need to begin working with Git locally on your own and serves as a primer to things that are useful to understand to begin collaborating using Git and GitHub.
+
+The file **git_remote_repositories.md** is currently under development and will include more info on how to use GitHub.
