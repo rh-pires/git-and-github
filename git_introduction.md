@@ -11,7 +11,7 @@
    3. [Checkout: traveling along and between branches](#checkout-traveling-along-and-between-branches)
    4. [Interacting with remote repositories](#interacting-with-remote-repositories)
 3. [How to get and run Git](#how-to-get-and-run-git)
-4. [The Anatomy of Git](#the-anatomy-of-git)
+4. [The anatomy of Git](#the-anatomy-of-git)
 5. [Git operations and commands](#git-operations-and-commands)
    1. [Initializing Git](#initializing-git)
    2. [Checking the status of the working tree](#checking-the-status-of-the-working-tree)
@@ -22,7 +22,8 @@
    7. [Working on new branches](#working-on-new-branches)
    8. [Merging branches - Updating with new files](#merging-branches---updating-with-new-files)
    9. [Merging branches - Updating with existing files](#merging-branches---updating-with-existing-files)
-   10. [Managing Merge conflicts](#merge-conflicts)
+   10. [Managing merge conflicts](#merge-conflicts)
+   11. [Renaming tracked files using Git](#renaming-tracked-files-using-git)
 
 ## What is Git?
 
@@ -320,3 +321,26 @@ We see that when attempting to merge, noticing the conflict, Git edited the "_sy
 ![Git_conflict4](/images/git_conflict4.png "Resolving a merger conflict")
 
 After editing the script in Nano, we staged the file and verified that the situation of the conflicting file changed. Entering **```git status```** we are told that the all conflicts are fixed, but merger has not been completed. Using **```git merge```** is irrelevant as is only returns a fatal error given that a merge is ongoing. To advance further, we commit the changes to the conflicting file, and in that moment the merger is resolved. We confirm this by entering again the merge command which returns that everything is up to date.
+
+### Renaming tracked files using Git
+
+Sometimes you might want to rename a file that is being tracked. This can cause problems and it needs to be addressed clearly. 
+
+There are two ways to handle renaming of files in git:
+
+- Using the **git mv** command, which takes the old file name and the new file name as arguments. This command will automatically stage the rename for commit and preserve the file history¹³⁴. For example:
+
+```bash
+git mv old_file.txt new_file.txt
+git commit -m "Rename old_file.txt to new_file.txt"
+```
+
+- Using the normal **rename** command of your operating system, and then using **git add** and **git rm** to stage the changes. This method requires you to manually tell git that you have renamed a file, but it will also detect the rename and preserve the file history²⁵. For example:
+
+```bash
+rename old_file.txt new_file.txt
+git rm old_file.txt
+git add new_file.txt
+git commit -m "Rename old_file.txt to new_file.txt"
+```
+
