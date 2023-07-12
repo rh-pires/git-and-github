@@ -12,7 +12,7 @@ The most basic content is found in **01_git_introduction.md** which includes eve
 
 The file **git_remote_repositories.md** is currently under development and will include more info on how to use GitHub.
 
-### _A01_git_best_practices_for_collaboration
+### _A01_git_best_practices_for_collaboration_
 
 A small list of "DO's and DON'Ts" when working with in teams across GitHub.
 
